@@ -85,18 +85,6 @@ def ice_Cone():
         right(120)
         forward(120)
     end_fill()
-    # draw lines on the cone
-    penup()
-    goto(50, -198)
-    color("#835212")
-    setheading(0)
-    pendown()
-
-    forward(100)
-
-
-
-
 
 set_Up()
 draw_Lines()
