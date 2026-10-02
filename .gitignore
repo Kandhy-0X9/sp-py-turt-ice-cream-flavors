@@ -1,0 +1,3 @@
+#Ignore tracking for these files
+.venv/
+apikeytest.py
