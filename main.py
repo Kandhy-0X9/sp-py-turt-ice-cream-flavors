@@ -34,7 +34,6 @@ def set_Up():
     hideturtle()
     begining()
 
-
 def draw_Lines():
     color("#972121")
     x =481
@@ -64,15 +63,20 @@ def flavor_Menu():
     end_fill()
     begining()
 
-
 def write_Flavor():
     color("#CE0303")
     y=135
     goto(-340.25,y)
     for word in flavors:
-        write(word, align="center", font=("Arial", 14, "bold"))
+        write(word, align="center", font=("Comic Sans MS", 14, "bold"))
         y -= 60
         goto(-340.25, y)
+    begining()
+
+def write_title():
+    color("#ffffff")
+    goto(0, 300)
+    write("Gibby's Ice Cream Special!", align="center", font=("Comic Sans MS",32, "bold"))
     begining()
 
 def ice_cone():
@@ -124,6 +128,7 @@ def pick_Flavor():
 def ice_cream_order():
     set_Up()
     draw_Lines()
+    write_title()
     flavor_Menu()
     write_Flavor()
     ice_cone()
