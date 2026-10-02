@@ -1,4 +1,5 @@
 from turtle import *
+from collections import deque
 import os
 
 flavors = {
@@ -74,10 +75,10 @@ def write_Flavor():
         goto(-340.25, y)
     begining()
 
-def ice_Cone():
+def ice_cone():
     penup()
     goto(60, -176)
-    color("#D2B48C")
+    color("#E0C5A1")
     pendown()
 
     begin_fill()
@@ -85,16 +86,40 @@ def ice_Cone():
         right(120)
         forward(120)
     end_fill()
+    begining()
 
-set_Up()
-draw_Lines()
-ice_Cone()
-done()
-# penup()
-# goto(0, 0)
-# pendown()
-# color("#FFB6C1")
-# begin_fill()
-# circle(55)
-# end_fill()
- 
+def ice_scoop(choice, y):
+    penup()
+    goto(0, y)
+    pendown()
+    color(flavors[choice])
+    begin_fill()
+    circle(60)
+    end_fill()
+
+def pick_Flavor():
+    choices = deque(maxlen=4)
+    while len(choices) < 4:
+        choose = textinput("Choose a flavor",f"Enter Flavor number {len(choices) + 1} or cancel to finish")
+        if not choose:
+            break
+        if choose in flavors:
+            choices.append(choose.strip().lower())
+        else:
+            continue
+    y = -200
+    for choice in choices:
+        ice_scoop(choice, y)
+        y += 70
+    begining()
+
+def ice_cream_order():
+    set_Up()
+    draw_Lines()
+    flavor_Menu()
+    write_Flavor()
+    ice_cone()
+    pick_Flavor()
+    done()
+
+ice_cream_order()
