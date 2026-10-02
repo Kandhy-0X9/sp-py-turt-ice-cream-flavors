@@ -96,6 +96,14 @@ def ice_scoop(choice, y):
     begin_fill()
     circle(60)
     end_fill()
+    x_pos = [-45, 0, 45]
+    for x in x_pos:
+        penup()
+        goto(x, y - 10)
+        pendown()
+        begin_fill()
+        circle(20)
+        end_fill()
 
 def pick_Flavor():
     choices = deque(maxlen=4)
